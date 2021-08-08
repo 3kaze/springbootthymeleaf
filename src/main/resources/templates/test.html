@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- each -->
+<table>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+    </tr>
+    <tr th:each="user:${list}">
+        <td th:text="${user.id}"/>
+        <td th:text="${user.name}"/>
+    </tr>
+</table>
+
+<!-- value -->
+<input type="text" th:value="${value}">
+
+<!-- src -->
+<img th:src="${src}" />
+<!--<img th:src="@{/spiderman.jpg}" />-->
+
+<!-- href -->
+<!--<a th:href="${href}">百度</a>-->
+
+<!-- select -->
+<!--<select>-->
+<!--    <option th:each="user:${list}"-->
+<!--            th:value="${user.id}"-->
+<!--            th:text="${user.name}"-->
+<!--            th:selected="${user.name == name}" />-->
+<!--</select>-->
+
+
+<!-- request -->
+<!--<p th:text="${#request.getAttribute('value')}" />-->
+<!--<p th:text="${#session.getAttribute('value')}" />-->
+<!--<p th:text="${#servletContext.getAttribute('value')}" />-->
+<!--<p th:text="${#response}" />-->
+
+<!--<p th:text="${value}" />-->
+<!--<p th:text="${#request.getAttribute('value')}" />-->
+<!--<p th:text="${session.value}" />-->
+<!--<p th:text="${#session.getAttribute('value')}" />-->
+
+date格式化： <span th:text="${#dates.format(date, 'yyyy-MM-dd')}" /><br />
+当前日期： <span th:text="${#dates.createToday()}" /><br />
+当前时间： <span th:text="${#dates.createNow()}" /><br />
+Calendar格式化： <span th:text="${#calendars.format(calendar, 'yyyy-MM-dd')}" /><br />
+Number百分比格式化： <span th:text="${#numbers.formatPercent(number, 2, 2)}" /><br />
+name是否为空： <span th:text="${#strings.isEmpty(string)}" /><br />
+name长度： <span th:text="${#strings.length(string)}" /><br />
+name拼接： <span th:text="${#strings.concat('Good', string)}" /><br />
+boolean是否为true： <span th:text="${#bools.isTrue(boolean)}" /><br />
+arrays的长度： <span th:text="${#arrays.length(array)}" /><br />
+arrays是否包含张三： <span th:text="${#arrays.contains(array, '张三')}" /><br />
+List是否为空： <span th:text="${#lists.isEmpty(list)}" /><br />
+List的长度： <span th:text="${#lists.size(list)}" /><br />
+Set是否为空： <span th:text="${#sets.isEmpty(set)}" /><br />
+Set的长度： <span th:text="${#sets.size(set)}" /><br />
+Map是否为空： <span th:text="${#maps.isEmpty(map)}" /><br />
+Map的长度： <span th:text="${#maps.size(map)}" /><br />
+</body>
+</html>
